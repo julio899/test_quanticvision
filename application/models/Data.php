@@ -26,7 +26,8 @@ class Data extends CI_Model {
 	public function verifycation($data)
 	{		
 
-		$this->db->where($data);		
+		$this->db->where($data);
+		$this->db->limit(1);		
 		$result = $this->db->get('Usuario')->result();
 
 		if(count($result)>0)

@@ -96,6 +96,15 @@
             <img src="<?php echo base_url(); ?>images/logo.png">            
           </div>
           <div class="card-body ">
+                
+                <?php if ($this->session->flashdata('error')): ?>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error</strong> <?php echo $this->session->flashdata('error'); ?>.
+                    <button type="button" class="close" style="line-height: 1.3!important;" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                <?php endif; ?>
 
                   <form>
                   <div class="row">
@@ -169,7 +178,7 @@ button.btn.btn-info.btn-lg:hover{
 
 </style>
 
-
+      <?php $this->load->view('html/resources_js'); ?>
 </body>
 
 </html>

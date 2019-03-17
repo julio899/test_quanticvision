@@ -7,6 +7,11 @@ class Users extends CI_Controller {
 	 * Index Page for this controller.
 	 *
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		isAdmin();
+	}
 
 	public function index()
 	{

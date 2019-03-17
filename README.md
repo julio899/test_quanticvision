@@ -1,4 +1,4 @@
-# Test Skill from Quanticvision 
+# Test Skill from QuanticVision 
 
 Autor : Julio Vinachi
 	

@@ -23,6 +23,15 @@ class Data extends CI_Model {
 		return $this->db->get('Rol')->result();
 	}
 
+	function getUsers()
+	{
+		$this->db->select('*');
+	    $this->db->from('Usuario u');
+	    $this->db->join('Rol R', 'u.rol_id = R.id');
+	    $this->db->order_by("u.id", "desc");
+		return $this->db->get()->result();
+	}
+
 	public function verifycation($data)
 	{		
 

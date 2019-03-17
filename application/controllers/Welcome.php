@@ -21,7 +21,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-						'page'=>'dashboard'
+						'page'=>'dashboard',
+						'users'=>$this->data->getUsers()
 					);
 		$this->load->view('welcome_message',$data);
 	}

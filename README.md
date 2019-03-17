@@ -2,7 +2,7 @@
 
 Autor : Julio Vinachi
 	
-''' Requerimientos
+## Requerimientos
 
 		- PHP 7.2 o superior
 		- Entorno de Desarrollo Usado (LAMP)

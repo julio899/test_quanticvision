@@ -34,7 +34,8 @@
       <?php $this->load->view('html/footer'); ?> 
     </div>
   </div>
-      <?php $this->load->view('html/plugin'); ?>
+      <?php //$this->load->view('html/plugin'); ?>
+      <?php $this->load->view('component/modal_update_user'); ?>
       <?php $this->load->view('html/resources_js'); ?>
 
 </body>

@@ -367,16 +367,17 @@
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
-                  <h4 class="card-title">Usuarios Registrados</h4>
-                  <p class="card-category">&uacute;ltimos 10 Usuarios, m&aacute;s recientes en TOP position </p>
+                  <h4 class="card-title">&Uacute;ltimos 10 Usuarios Registrados</h4>
+                  <p class="card-category">M&aacute;s recientes en TOP position, order DESC</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
                       <th>Full Name</th>
-                      <th>User</th>
+                      <th>User Name</th>
                       <th>ROL</th>
+                      <th>OPTIONS</th>
                     </thead>
                     <tbody>
                       <?php if(isset($users)): ?>
@@ -386,6 +387,15 @@
                             <td><?php echo $u->nombres.' '.$u->apellidos; ?></td>
                             <td><?php echo $u->username; ?></td>
                             <td><?php echo $u->nombre; ?></td>
+
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm" data-toggle="modal" data-target="#loginModal">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
                           </tr>
                         <?php endforeach; ?>
                       <?php endif; ?>

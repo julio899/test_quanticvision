@@ -127,7 +127,7 @@
         <nav class="float-left">
           <ul>
               <li>
-                  <a href="#">Apacionado y Creativo</a>
+                  <a href="#">Trabajo Apasionado y Creativo</a>
               </li>
               
               

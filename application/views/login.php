@@ -93,8 +93,7 @@
       <form class="form" action="login/authenticate" method="post">
         <div class="card card-login">
           <div class="card-header card-header-info text-center">
-            <h4 class="card-title" style="font-size: 2em;"><spam style="font-weight: 200;">Identificación</spam><b>App</b></h4>
-            
+            <img src="<?php echo base_url(); ?>images/logo.png">            
           </div>
           <div class="card-body ">
 

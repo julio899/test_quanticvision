@@ -1,10 +1,12 @@
 # Test Skill from Quanticvision 
 
 Autor : Julio Vinachi
+	
+''' Requerimientos
 
-Requerimientos
-	- PHP 7.2 o superior
-	- Entorno de Desarrollo Usado (LAMP)
+		- PHP 7.2 o superior
+		- Entorno de Desarrollo Usado (LAMP)
+
 		* Server version: Apache/2.4.3
 		* MySQL Server version: 5.7.21-1 (Debian)
 
@@ -23,5 +25,5 @@ Requerimientos
 	$config['base_url'] = 'http://localhost/quanticvision/';
 
 
-# Preferiblemente tener activo el Mod_rewrite en Apache
+# Preferiblemente tener activo el mod_rewrite en Apache
 	para la deteccion del .htaccess y buentrabajo de las Rutas

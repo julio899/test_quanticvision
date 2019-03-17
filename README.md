@@ -26,4 +26,4 @@ Autor : Julio Vinachi
 
 
 # Preferiblemente tener activo el mod_rewrite en Apache
-	para la deteccion del .htaccess y buentrabajo de las Rutas
+	para la deteccion del .htaccess y buen trabajo de las Rutas

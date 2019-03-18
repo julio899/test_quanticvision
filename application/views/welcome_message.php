@@ -17,6 +17,8 @@
   <link href="<?php echo base_url();?>assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo base_url();?>assets/demo/demo.css" rel="stylesheet" />
+  <!-- datatable   -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
 </head>
 
 <body class="">

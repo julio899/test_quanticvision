@@ -109,7 +109,7 @@
               <div class="card">
                 <div class="card-header card-header-warning">
                   <h4 class="card-title">Usuarios Registrados</h4>
-                  <p class="card-category">M&aacute;s recientes en TOP position, order DESC</p>
+                  <p class="card-category">M&aacute;s recientes en TOP position, order DESC, click sobre cada columna para ordenar a gusto.</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table id="users_table" class="table table-hover">

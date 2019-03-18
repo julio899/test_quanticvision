@@ -19,6 +19,10 @@ if( document.getElementById('btn_update_account') != null )
 if( document.getElementById('users_table') != null ) 
 {
 	$('#users_table').DataTable({
+		"order": [0,'desc'],
+		"columnDefs": [
+		    { "orderable": false, "targets": 4 }
+		  ],
 		"language": {
 		    "decimal":        "",
     		"emptyTable":     "No hay datos disponibles en tabla",
@@ -44,6 +48,9 @@ if( document.getElementById('users_table') != null )
 		    }
 		  }
 	});
+
+	// Sort by column 0 and then re-draw
+	// table.order( [ 0, 'desc' ] ).draw();
 }
 
 
@@ -102,5 +109,6 @@ function update_account(e){
 
 	 },3000);
 
-	//$('#loginModal').modal('hide');
 }
+	// Pendiente para el llenado de Usuarios de Pruebas
+	// https://randomuser.me/api/?results=200&?password=special,1-16

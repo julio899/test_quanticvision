@@ -141,7 +141,7 @@
                               >
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>

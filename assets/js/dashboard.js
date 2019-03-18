@@ -100,8 +100,10 @@ function confirm_delete_account(evt){
 	}).then(function(resp){
 
 		if(resp!=undefined && resp.value)
+		{
 			console.log('confirmado para eliminar');
 			evt.parentNode.parentNode.remove();
+		}
 
 	});
 }

@@ -30,7 +30,12 @@ class Login extends CI_Controller {
 		{
 			$response_status = 'success';
 			unset($resp->password);
+			// En la posicion nombre se contiene el typo de cuenta
+			// Referente a la tabla Rol como lo es ADMIN  
+			//var_dump($this->data->getRole($resp->Rol_id));exit();
+			$this->session->set_userdata('user_type', $this->data->getRole($resp->Rol_id) );
 			$this->session->set_userdata('account', $resp);
+
 			redirect('welcome');
 		}else{
 			$response_status = 'error';

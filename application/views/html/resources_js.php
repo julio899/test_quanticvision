@@ -42,6 +42,11 @@
   <script src="<?php echo base_url();?>assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="<?php echo base_url();?>assets/demo/demo.js"></script>
+
+  <!-- Funcional para el modulo del Dashboard -->
+  <script src="<?php echo base_url();?>assets/js/dashboard.js"></script>
+
+  
   <script>
     $(document).ready(function() {
       $().ready(function() {

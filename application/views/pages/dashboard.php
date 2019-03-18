@@ -1,39 +1,5 @@
 <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">content_copy</i>
-                  </div>
-                  <p class="card-category">Used Space</p>
-                  <h3 class="card-title">49/50
-                    <small>GB</small>
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
-                    <a href="#pablo">Get More Space...</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">store</i>
-                  </div>
-                  <p class="card-category">Revenue</p>
-                  <h3 class="card-title">$34,245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">date_range</i> Last 24 Hours
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="col"></div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-danger card-header-icon">
@@ -41,7 +7,7 @@
                     <i class="material-icons">info_outline</i>
                   </div>
                   <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">75</h3>
+                  <h3 class="card-title">0</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -51,21 +17,41 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
+              <?php if(isset($users)): ?>
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-group"></i>
                   </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
+                  <p class="card-category">Registrados</p>
+                  <h3 class="card-title">+<?php echo count($users); ?></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
+                    <i class="material-icons">update</i> Actualizaci&oacute;n Actual
+                  </div>
+                </div>
+              </div>
+              <?php endif; ?>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">store</i>
+                  </div>
+                  <p class="card-category">Bienvenido</p>
+                    <h3 class="card-title"><?php echo $this->session->userdata('account')->nombres.' '.$this->session->userdata('account')->apellidos; ?></h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="#pablo">Tu cuenta posee el Rol <?php echo $this->session->userdata('user_type');?> </a>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="col"></div>
           </div>
           <div class="row">
             <div class="col-md-4">
@@ -389,7 +375,15 @@
                             <td><?php echo $u->nombre; ?></td>
 
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm" data-toggle="modal" data-target="#loginModal">
+                              <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm custom_edit"
+                                data-id="<?php echo $u->id; ?>"
+                                data-name="<?php echo $u->nombres; ?>"
+                                data-last-name="<?php echo $u->apellidos; ?>"
+                                data-email="<?php echo $u->email; ?>"
+                                data-telefono="<?php echo $u->telefono; ?>"
+                                data-username="<?php echo $u->username; ?>"
+                                data-rol-name="<?php echo $u->nombre; ?>"
+                              >
                                 <i class="material-icons">edit</i>
                               </button>
                               <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">

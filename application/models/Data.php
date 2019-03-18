@@ -23,6 +23,14 @@ class Data extends CI_Model {
 		return $this->db->get('Rol')->result();
 	}
 
+	function getRole($id)
+	{
+		$this->db->select('nombre');
+		$this->db->where('id',$id);
+		$this->db->limit(1);
+		return $this->db->get('Rol')->result()[0]->nombre;
+	}
+
 	function getUsers()
 	{
 		$this->db->select('*');

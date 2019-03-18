@@ -2,7 +2,7 @@
 
 Autor : Julio Vinachi
 
-![alt text](https://previews.dropbox.com/p/thumb/AAXlQYZHoS5WZqwa43cNF6btTwrRL8XlJ5pQ7Q4wP635WCu7iSV3JRwVSeVGTjSGmPPj3DwyNOUU_Ny9cHMeKj75MFEw38eCjOPY7DSu9ZiKzzITBEmdAUr_Uf8Ly2K3ZI9BdL2l7pyy3kzR6OK9AUDocGuUQSaLOpAmf7sIXlQF8EY88u-wjNU-EfsbawHn2FYnBMEO2K2_J8IilIKcX-6hTEh4-va6z_Bw4Xfyo1wCN54EDjVH0vycONZOhzVA5X0nKACH_VLxeQS6ftcPcru11p7qmgGmfp5gklJ0hKn33w/p.png?size=1280x960&size_mode=3 "ScreenShop")
+![alt text](https://julio899.github.io/perfil/img/screenshot.png "ScreenShop")
 ## Requerimientos
 
 		- PHP 7.2 o superior

@@ -2,7 +2,7 @@
 
 Autor : Julio Vinachi
 
-![alt text](https://www.dropbox.com/s/w2h7tzv3rmd4v4k/screenshot.png?dl=0 "ScreenShop")
+![alt text](https://www.dropbox.com/s/w2h7tzv3rmd4v4k/screenshot.png "ScreenShop")
 ## Requerimientos
 
 		- PHP 7.2 o superior

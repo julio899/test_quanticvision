@@ -16,6 +16,15 @@ class Login extends CI_Controller {
 		$this->load->view('login',$data);
 	}
 
+	public function logout()
+	{
+		# Limpiando y Redirigiendo
+		$this->session->unset_userdata('user_type');
+		$this->session->unset_userdata('account');
+		$this->session->sess_destroy();
+		redirect('login');
+	}
+
 	public function authenticate()
 	{
 

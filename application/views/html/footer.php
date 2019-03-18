@@ -4,22 +4,12 @@
           <nav class="float-left">
             <ul>
               <li>
-                <a href="#">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="#">
+                <a href="https://julio899.github.io/perfil">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#">
+                <a href="https://profile.codersrank.io/user/julio899">
                   Licenses
                 </a>
               </li>

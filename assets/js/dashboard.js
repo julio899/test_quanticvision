@@ -1,14 +1,6 @@
-if( document.getElementsByClassName('custom_edit') != null ) 
-{
-	var elementos = document.getElementsByClassName('custom_edit');
-	var cantidad_items = elementos.length;
-	var control = 0;
-	while( control<cantidad_items )
-	{
-		elementos.item(control).addEventListener('click',click_editar_cuenta);
-		control++;
-	}
-}
+
+
+addEventToEdit();
 
 if( document.getElementById('btn_update_account') != null ) 
 {
@@ -18,7 +10,7 @@ if( document.getElementById('btn_update_account') != null )
 // Activacion Funcionalidad de la Tabla de Usuarios
 if( document.getElementById('users_table') != null ) 
 {
-	$('#users_table').DataTable({
+	var table = $('#users_table').DataTable({
 		"order": [0,'desc'],
 		"columnDefs": [
 		    { "orderable": false, "targets": 4 }
@@ -50,9 +42,28 @@ if( document.getElementById('users_table') != null )
 	});
 
 	// Sort by column 0 and then re-draw
-	// table.order( [ 0, 'desc' ] ).draw();
+	table.order( [ 0, 'desc' ] ).draw();
+
+	table.on( 'draw.dt', function () {
+    	console.log( 'Table redrawn' );
+    	addEventToEdit();
+	} );
 }
 
+function addEventToEdit(){
+
+	if( document.getElementsByClassName('custom_edit') != null ) 
+	{
+		var elementos = document.getElementsByClassName('custom_edit');
+		var cantidad_items = elementos.length;
+		var control = 0;
+		while( control<cantidad_items )
+		{
+			elementos.item(control).addEventListener('click',click_editar_cuenta);
+			control++;
+		}
+	}
+}
 
 function click_editar_cuenta (e) {
 	

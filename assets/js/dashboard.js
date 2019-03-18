@@ -70,10 +70,10 @@ function click_editar_cuenta (e) {
 	$('#loginModal').modal();
 }
 
-function confirm_delete_account(){
+function confirm_delete_account(evt){
 	Swal.fire({
 	  title: '<strong>Quieres ELIMINAR esta cuenta?</strong>',
-	  type: 'info',
+	  type: 'warning',
 	  html:
 	    'Si <b>confirma</b>, ' +
 	    'se eliminara de forma permanente',
@@ -86,6 +86,12 @@ function confirm_delete_account(){
 	  cancelButtonText:
 	    '<i class="fa fa-times"></i> Cancelar',
 	  cancelButtonAriaLabel: 'Thumbs down',
+	}).then(function(resp){
+
+		if(resp!=undefined && resp.value)
+			console.log('confirmado para eliminar');
+			evt.parentNode.parentNode.remove();
+
 	});
 }
 
@@ -107,8 +113,18 @@ function update_account(e){
 		document.getElementById("progress_update_edit").style.display="none";
 		sweetAlert('Excelente','Los datos fueros actualizados correctamente...','success');
 
-	 },3000);
+	 },2000);
 
 }
 	// Pendiente para el llenado de Usuarios de Pruebas
 	// https://randomuser.me/api/?results=200&?password=special,1-16
+
+	/* 
+		$.ajax({
+		  url: 'https://randomuser.me/api/?results=200&?password=special,1-16',
+		  dataType: 'json',
+		  success: function(data) {
+		    console.log(data);
+		  }
+		});
+	*/

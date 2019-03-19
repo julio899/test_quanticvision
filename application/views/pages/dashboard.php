@@ -123,11 +123,13 @@
                     <tbody>
                       <?php if(isset($users)): ?>
                         <?php foreach ($users as $key => $u): ?>
-                          <tr>
-                            <td><?php echo $u->id; ?></td>
-                            <td><?php echo $u->nombres.' '.$u->apellidos; ?></td>
-                            <td><?php echo $u->username; ?></td>
-                            <td><?php echo $u->nombre; ?></td>
+                          <tr id="cr_tr_<?php echo $key+1; ?>">
+                            <td id="cr_id_<?php echo $key+1; ?>"><?php echo $key+1; ?></td>
+                            <td id="cr_name_<?php echo $key+1; ?>"><?php var_dump($u); echo $u->nombres.' '.$u->apellidos; ?></td>
+                            <td id="cr_username_<?php echo $key+1; ?>"><?php echo $u->username; ?></td>
+                            <td id="cr_rol_<?php echo $key+1; ?>">
+                              <label style="padding: 4px 10px;min-width: 75px;" class="btn <?php if($u->nombre=='ADMIN'){ echo 'btn-success';}else{echo 'btn-default';} ?> btn-round"><?php echo $u->nombre; ?></label>
+                            </td>
 
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm custom_edit"
@@ -138,10 +140,11 @@
                                 data-telefono="<?php echo $u->telefono; ?>"
                                 data-username="<?php echo $u->username; ?>"
                                 data-rol-name="<?php echo $u->nombre; ?>"
+                                data-key="<?php echo $key+1; ?>"
                               >
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-link btn-sm">
+                              <button data-id="<?php echo $u->id; ?>" data-key="<?php echo $key+1; ?>" onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>

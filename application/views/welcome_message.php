@@ -19,6 +19,7 @@
   <link href="<?php echo base_url();?>assets/demo/demo.css" rel="stylesheet" />
   <!-- datatable   -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+  <script type="text/javascript">var base_url="<?php echo base_url();?>";</script>
 </head>
 
 <body class="">

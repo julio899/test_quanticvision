@@ -1,7 +1,7 @@
 
 
 addEventToEdit();
-
+var keyClickBtnUpdate=null;
 if( document.getElementById('btn_update_account') != null ) 
 {
 	document.getElementById('btn_update_account').addEventListener('click',update_account);
@@ -70,6 +70,9 @@ function click_editar_cuenta (e) {
 	e.path.map(function(revisado){
 		if(revisado.className=='btn btn-primary btn-link btn-sm custom_edit')
 		{			
+			console.log(revisado.parentNode.parentNode);
+			console.log( 'Key:'+revisado.getAttribute('data-key') );
+			keyClickBtnUpdate=revisado.getAttribute('data-key');
 			document.getElementById("edit_id").value=revisado.getAttribute('data-id');
 			document.getElementById("edit_name").value=revisado.getAttribute('data-name');
 			document.getElementById("edit_last_name").value=revisado.getAttribute('data-last-name');
@@ -82,6 +85,8 @@ function click_editar_cuenta (e) {
 }
 
 function confirm_delete_account(evt){
+
+				           	console.log(evt);
 	Swal.fire({
 	  title: '<strong>Quieres ELIMINAR esta cuenta?</strong>',
 	  type: 'warning',
@@ -101,10 +106,36 @@ function confirm_delete_account(evt){
 
 		if(resp!=undefined && resp.value)
 		{
+
+	           	// BORRAR CUENTA
+	           	 $.ajax({
+				           type: "POST",
+				           url: base_url+"users/remove",
+				           dataType: "json",
+				           success: function (msg){
+				           	console.log(msg);
+				           },
+				           data:{id:null}
+				       });
+	           	 //CIERRE DE BORRAR CUENTA
 			console.log('confirmado para eliminar');
 			evt.parentNode.parentNode.remove();
 		}
 
+	});
+}
+
+function send_data_up_acc(acc)
+{
+	var url = base_url + 'users/update';
+	var data = acc;
+
+	return fetch(url, {
+	  method: 'POST',
+	  body: JSON.stringify(data), // data can be `string` or {object}!
+	  headers:{
+	    'Content-Type': 'application/json'
+	  }
 	});
 }
 
@@ -114,6 +145,15 @@ function update_account(e){
 	console.log(document.getElementById("edit_last_name").value);
 	console.log(document.getElementById("edit_email").value);
 	console.log(document.getElementById("edit_phone").value);
+	
+	var account = {
+					'id': 		document.getElementById("edit_id").value,
+					'name': 	document.getElementById("edit_name").value,
+	               	'last_name':document.getElementById("edit_last_name").value,
+	               	'email': 	document.getElementById("edit_email").value ,
+	               	'phone': 	document.getElementById("edit_phone").value 
+	};
+
 	console.log('update_account');
 	var btn = e.target;
 	
@@ -121,12 +161,95 @@ function update_account(e){
 	
 	document.getElementById("progress_update_edit").style.display="";
 
-	setTimeout(function (){ 
+  $.ajax({
+           type: "POST",
+           url: base_url+"users/update",
+           dataType: "json",
+           success: function (msg) {
+               if (msg) {
+               	document.getElementById("cr_name_" + keyClickBtnUpdate ).innerHTML=account.name+' '+account.last_name;
+               	btn.style.display = "";
+				document.getElementById("progress_update_edit").style.display="none";
+				sweetAlert('Excelente','Los datos fueros actualizados correctamente...','success');
+               } else {
+                   alert("Lo sentimos Ocurrio un error al insertar !");
+               }
+           },
+
+           data: account
+       });
+  	return 1;
+
+var cuentas = [];
+  $.ajax({
+           type: "GET",
+           url: "https://randomuser.me/api/?results=5&?password=special,1-16",
+           dataType: "json",
+           success: function (msg) {
+           	msg.results.map(function(u){
+
+           		console.log('name ' + u.name.first);
+           		console.log('apellido ' + u.name.last);
+           		console.log('email ' + u.email);
+           		console.log('usuario ' + u.login.username);
+           		console.log('telefono ' + u.phone);
+           		console.log('fecha reg. ' + u.registered.date.substr(0,10));
+           		console.log('password ' + u.login.password);
+           		console.log('Rol id ' + getRandomArbitrary(1,3));
+           		
+           		var account={
+					name: u.name.first,
+	               	last_name:u.name.last,
+	               	email: u.email,
+	               	phone: u.phone,
+	               	username: u.login.username,
+	               	date: u.registered.date.substr(0,10) ,
+           			password: u.login.password,
+           			rolid: getRandomArbitrary(1,3)
+           		};
+           		cuentas.push(account);
+
+
+           		console.log(u);
+           		console.log('----------------------');
+
+           	});     
+           	console.log(cuentas);
+
+           	cuentas.map(function(acc){
+	           	// REGISTRAR CUENTA
+	           	 $.ajax({
+				           type: "POST",
+				           url: base_url+"users/add",
+				           dataType: "json",
+				           success: function (msg){
+				           	console.log(msg);
+				           },
+				           data:acc
+				       });
+	           	 //CIERRE DE REGISTRAR CUENTA
+           	});
+          }
+       });
+	////////////////////
+
+
+	
+	/*
+	send_data_up_acc(account)
+	.then(res => res.json())
+	.catch(error => console.error('Error:', error))
+	.then((response) => {
+	
+		console.log('Success:', response)	
 		btn.style.display = "";
 		document.getElementById("progress_update_edit").style.display="none";
 		sweetAlert('Excelente','Los datos fueros actualizados correctamente...','success');
+	
+	});
+	setTimeout(function (){ 
 
-	 },2000);
+	 },2000);*/
 
 }
 	// Pendiente para el llenado de Usuarios de Pruebas
@@ -141,3 +264,7 @@ function update_account(e){
 		  }
 		});
 	*/
+// Retorna un número aleatorio entre min (incluido) y max (excluido)
+function getRandomArbitrary(min, max) {
+  return parseInt(Math.random() * (max - min) + min);
+}

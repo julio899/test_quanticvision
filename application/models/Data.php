@@ -37,7 +37,30 @@ class Data extends CI_Model {
 	    $this->db->from('Usuario u');
 	    $this->db->join('Rol R', 'u.rol_id = R.id');
 	    $this->db->order_by("u.id", "desc");
-		return $this->db->get()->result();
+	    return $this->db->get()->result(); 
+	}
+
+	function addUser($data)
+	{
+		return $this->db->insert('Usuario', $data); 
+	}
+
+	function removeUser($data)
+	{
+		return $this->db->delete('Usuario', $data); 
+	}
+
+	function updateUser($dt)
+	{
+		$data = array(
+               'nombres' 	=> $dt['nombres'],
+               'apellidos' 	=> $dt['apellidos'],
+               'telefono' 	=> $dt['telefono'],
+               'email' 		=> $dt['email']
+            );
+
+		$this->db->where('id', $dt['id']);
+		return $this->db->update('Usuario', $data);  
 	}
 
 	public function verifycation($data)

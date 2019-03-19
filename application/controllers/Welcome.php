@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 						'page'=>'dashboard',
 						'users'=>$this->data->getUsers()
 					);
+		//var_dump($data['users']);exit;
 		$this->load->view('welcome_message',$data);
 	}
 }

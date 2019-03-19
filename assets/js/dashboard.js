@@ -13,7 +13,7 @@ if( document.getElementById('users_table') != null )
 	var table = $('#users_table').DataTable({
 		"order": [0,'desc'],
 		"columnDefs": [
-		    { "orderable": false, "targets": 4 }
+		    { "orderable": false, "targets": 6 }
 		  ],
 		"language": {
 		    "decimal":        "",
@@ -73,6 +73,8 @@ function click_editar_cuenta (e) {
 			console.log(revisado.parentNode.parentNode);
 			console.log( 'Key:'+revisado.getAttribute('data-key') );
 			keyClickBtnUpdate=revisado.getAttribute('data-key');
+			
+			document.getElementById("avatar_edit").setAttribute('src',revisado.getAttribute('data-avatar'));
 			document.getElementById("edit_id").value=revisado.getAttribute('data-id');
 			document.getElementById("edit_name").value=revisado.getAttribute('data-name');
 			document.getElementById("edit_last_name").value=revisado.getAttribute('data-last-name');
@@ -205,7 +207,8 @@ var cuentas = [];
 	               	username: u.login.username,
 	               	date: u.registered.date.substr(0,10) ,
            			password: u.login.password,
-           			rolid: getRandomArbitrary(1,3)
+           			rolid: getRandomArbitrary(1,3),
+           			avatar: u.picture.large
            		};
            		cuentas.push(account);
 

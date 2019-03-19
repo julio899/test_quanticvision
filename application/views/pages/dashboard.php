@@ -2,16 +2,16 @@
             <div class="col"></div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
+                <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">info_outline</i>
+                    <i class="material-icons btn_add_user" style="cursor: pointer;">person_add</i>
                   </div>
-                  <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">0</h3>
+                  <p class="card-category">Nuevo Usuario</p>
+                  <h5 class="card-title"></h5>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">local_offer</i> Tracked from Github
+                    <i class="material-icons">person_add</i> Registro de Cuenta
                   </div>
                 </div>
               </div>
@@ -117,18 +117,26 @@
                       <th>ID</th>
                       <th>Full Name</th>
                       <th>User Name</th>
+                      <th>Email</th>
                       <th>ROL</th>
+                      <th>Creation</th>
                       <th>OPCIONS</th>
                     </thead>
                     <tbody>
                       <?php if(isset($users)): ?>
                         <?php foreach ($users as $key => $u): ?>
-                          <tr id="cr_tr_<?php echo $key+1; ?>">
-                            <td id="cr_id_<?php echo $key+1; ?>"><?php echo $key+1; ?></td>
-                            <td id="cr_name_<?php echo $key+1; ?>"><?php echo $u->nombres.' '.$u->apellidos; ?></td>
-                            <td id="cr_username_<?php echo $key+1; ?>"><?php echo $u->username; ?></td>
-                            <td id="cr_rol_<?php echo $key+1; ?>">
+                          <tr id="cr_tr_<?php echo $u->id; ?>">
+                            <td id="cr_id_<?php echo $u->id; ?>"><?php echo $u->id; ?></td>
+                            <td id="cr_name_<?php echo $u->id; ?>"><?php echo $u->nombres.' '.$u->apellidos; ?></td>
+                            <td id="cr_username_<?php echo $u->id; ?>"><?php echo $u->username; ?></td>
+                            <td id="cr_email_<?php echo $u->id; ?>">
+                              <?php echo $u->email; ?>
+                            </td>
+                            <td id="cr_rol_<?php echo $u->id; ?>">
                               <label style="padding: 4px 10px;min-width: 75px;" class="btn <?php if($u->nombre=='ADMIN'){ echo 'btn-success';}else{echo 'btn-default';} ?> btn-round"><?php echo $u->nombre; ?></label>
+                            </td>
+                            <td id="cr_date_<?php echo $u->id; ?>">
+                              <?php echo $u->fecha_creacion; ?>
                             </td>
 
                             <td class="td-actions text-right">
@@ -140,11 +148,12 @@
                                 data-telefono="<?php echo $u->telefono; ?>"
                                 data-username="<?php echo $u->username; ?>"
                                 data-rol-name="<?php echo $u->nombre; ?>"
-                                data-key="<?php echo $key+1; ?>"
+                                data-avatar="<?php echo $u->avatar; ?>"
+                                data-key="<?php echo $u->id; ?>"
                               >
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button data-id="<?php echo $u->id; ?>" data-key="<?php echo $key+1; ?>" onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-link btn-sm">
+                              <button data-id="<?php echo $u->id; ?>" data-key="<?php echo $u->id; ?>" onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button>
                             </td>

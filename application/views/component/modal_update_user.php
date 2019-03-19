@@ -31,6 +31,16 @@
                     
                     <form class="form" method="" action="">
                         <p class="description text-center">Panel de Edici&oacute;n de Cuenta</p>
+                        <img id="avatar_edit" class="img" src="https://randomuser.me/api/portraits/men/10.jpg" style="
+                                  border-radius: 50%;
+                                  position: absolute;
+                                  z-index: 10;
+                                  top: -26%;
+                                  left: -5%;
+                                  max-width: 128px;
+                                  height: auto;
+                              ">
+
                         <div class="card-body">
                           
                           <div class="row">

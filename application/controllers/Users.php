@@ -84,7 +84,8 @@ class Users extends CI_Controller {
                	'fecha_creacion' 	=> $this->input->post_get('date') ,
                	'password' 	=> $this->input->post_get('password') ,
                	'Rol_id' 	=> $this->input->post_get('rolid') ,
-               	'activo' 	=> '1' 
+               	'activo' 	=> '1' ,
+               	'avatar' 	=> $this->input->post_get('avatar') 
                );
 
 		$resp = $this->data->addUser( $datos );

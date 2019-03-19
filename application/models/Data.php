@@ -33,11 +33,42 @@ class Data extends CI_Model {
 
 	function getUsers()
 	{
-		$this->db->select('*');
-	    $this->db->from('Usuario u');
-	    $this->db->join('Rol R', 'u.rol_id = R.id');
-	    $this->db->order_by("u.id", "desc");
-	    return $this->db->get()->result(); 
+		//$this->db->select('*');
+	    //$this->db->from('Usuario u');
+	    //$this->db->join('Rol R', 'u.rol_id = R.id');
+	    //$this->db->order_by("u.id", "desc");
+	    //return $this->db->get()->result();
+		/*
+	    $sql="SELECT Usuario.id,
+       Usuario.nombres,
+       Usuario.apellidos,
+       Usuario.email,
+       Usuario.telefono,
+       Usuario.username,
+       Usuario.password,
+       Usuario.fecha_creacion,
+       Usuario.activo,
+       Usuario.Rol_id,
+       Rol.id,
+       Rol.nombre,
+       Rol.descripcion,
+       Rol.activo
+		  FROM `Usuario`,
+		       `Rol`
+		 WHERE Usuario.Rol_id=Rol.id"; 
+		 */
+
+		$sql="SELECT Usuario.*,
+       Rol.nombre,
+       Rol.descripcion,
+       Rol.activo
+		  FROM `Usuario`,
+		       `Rol`
+		 WHERE Usuario.Rol_id=Rol.id"; 
+
+	    return $this->db->query($sql)->result();
+
+
 	}
 
 	function addUser($data)

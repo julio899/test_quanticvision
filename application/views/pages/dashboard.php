@@ -125,7 +125,7 @@
                         <?php foreach ($users as $key => $u): ?>
                           <tr id="cr_tr_<?php echo $key+1; ?>">
                             <td id="cr_id_<?php echo $key+1; ?>"><?php echo $key+1; ?></td>
-                            <td id="cr_name_<?php echo $key+1; ?>"><?php var_dump($u); echo $u->nombres.' '.$u->apellidos; ?></td>
+                            <td id="cr_name_<?php echo $key+1; ?>"><?php echo $u->nombres.' '.$u->apellidos; ?></td>
                             <td id="cr_username_<?php echo $key+1; ?>"><?php echo $u->username; ?></td>
                             <td id="cr_rol_<?php echo $key+1; ?>">
                               <label style="padding: 4px 10px;min-width: 75px;" class="btn <?php if($u->nombre=='ADMIN'){ echo 'btn-success';}else{echo 'btn-default';} ?> btn-round"><?php echo $u->nombre; ?></label>

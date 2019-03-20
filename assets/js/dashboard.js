@@ -13,6 +13,12 @@ if( document.getElementById('contenedor_adduser') != null )
 {
 	document.getElementById('contenedor_adduser').addEventListener('click',create_new_account);
 }
+
+if( document.getElementById('btn_register_account') != null ) 
+{
+	document.getElementById('btn_register_account').addEventListener('click',register_new_account);
+}
+
 // Activacion Funcionalidad de la Tabla de Usuarios
 if( document.getElementById('users_table') != null ) 
 {
@@ -54,6 +60,23 @@ if( document.getElementById('users_table') != null )
     	console.log( 'Table redrawn' );
     	addEventToEdit();
 	} );
+}
+
+function register_new_account(){
+	
+	var cant_roles =document.getElementsByClassName('check_role').length;
+	var ctr=0;
+	var existe_check=false;
+	for(var ctr=0;cant_roles>ctr;ctr++){
+		console.log(document.getElementsByClassName('check_role').item(ctr));
+		console.log(document.getElementsByClassName('check_role').item(ctr).checked);
+		console.log(document.getElementsByClassName('check_role').item(ctr).getAttribute("id"));
+		if(document.getElementsByClassName('check_role').item(ctr).checked==true ){ existe_check=true; }
+	}
+	console.log('register_new_account');
+	if(!existe_check){
+		sweetAlert('Oops','Lo Sentimos pero ... <br>Usted debe seleccionar un Rol para poder registrar.','error');
+	}
 }
 
 function create_new_account(){

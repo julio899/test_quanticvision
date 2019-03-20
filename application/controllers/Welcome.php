@@ -23,7 +23,8 @@ class Welcome extends CI_Controller {
 	{
 		$data = array(
 						'page'=>'dashboard',
-						'users'=>$this->data->getUsers()
+						'users'=>$this->data->getUsers(),
+						'roles'=>$this->data->getRoles()
 					);
 		//var_dump($data['users']);exit;
 		$this->load->view('welcome_message',$data);

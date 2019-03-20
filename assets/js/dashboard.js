@@ -67,15 +67,85 @@ function register_new_account(){
 	var cant_roles =document.getElementsByClassName('check_role').length;
 	var ctr=0;
 	var existe_check=false;
+	var rol=null;
 	for(var ctr=0;cant_roles>ctr;ctr++){
 		console.log(document.getElementsByClassName('check_role').item(ctr));
 		console.log(document.getElementsByClassName('check_role').item(ctr).checked);
 		console.log(document.getElementsByClassName('check_role').item(ctr).getAttribute("id"));
-		if(document.getElementsByClassName('check_role').item(ctr).checked==true ){ existe_check=true; }
+		if(document.getElementsByClassName('check_role').item(ctr).checked==true ){ 
+			existe_check=true;
+			rol=document.getElementsByClassName('check_role').item(ctr).value;
+			console.log('R:'+document.getElementsByClassName('check_role').item(ctr).value);
+		 }
 	}
 	console.log('register_new_account');
+	var some_invalid = false;
 	if(!existe_check){
+		some_invalid = true;
 		sweetAlert('Oops','Lo Sentimos pero ... <br>Usted debe seleccionar un Rol para poder registrar.','error');
+		return -1;
+	}
+	if(document.getElementById("register_name").value.trim() == ""){
+		some_invalid = true;
+		sweetAlert('Oops. [nombre] esta VACIO','Lo Sentimos pero ... <br>Usted no puede dejar en campo de nombre VACIO.','error');
+		return -1;
+	}
+	if(document.getElementById("register_last_name").value.trim() == ""){
+		some_invalid = true;
+		sweetAlert('Oops. [apellido] esta VACIO','Lo Sentimos pero ... <br>Usted no puede dejar en campo de apellido VACIO.','error');
+		return -1;
+	}
+	if(document.getElementById("register_email").value.trim() == ""){
+		some_invalid = true;
+		sweetAlert('Oops. [email] esta VACIO','Lo Sentimos pero ... <br>Usted no puede dejar en campo de email VACIO.','error');
+		return -1;
+	}
+	if(document.getElementById("register_username").value.trim() == ""){
+		some_invalid = true;
+		sweetAlert('Oops. [username] esta VACIO','Lo Sentimos pero ... <br>Usted no puede dejar en campo de nombre de usuario VACIO.','error');
+		return -1;
+	}
+	if(document.getElementById("register_password").value.trim() == ""){
+		some_invalid = true;
+		sweetAlert('Oops. [password] esta VACIO','Lo Sentimos pero ... <br>Usted no puede dejar en campo de password VACIO.','error');
+		return -1;
+	}
+	//si no hay nada invalido ahora si registro
+	if(!some_invalid){
+		var current_date=new Date(); 
+		if(current_date.getMonth()<10){ var mm="0"+current_date.getMonth(); }else{ var mm=current_date.getMonth(); }
+		if(current_date.getDate()<10){ var dd="0"+current_date.getDate(); }else{ var dd=current_date.getDate(); }
+		
+		current_date=current_date.getFullYear()+'-'+mm+'-'+dd;
+		
+		var acc={
+					name: document.getElementById("register_name").value.trim(),
+	               	last_name:document.getElementById("register_last_name").value.trim() ,
+	               	email: document.getElementById("register_email").value.trim(),
+	               	phone: document.getElementById("register_phone").value.trim(),
+	               	username: document.getElementById("register_username").value.trim(),
+	               	date: current_date,
+           			password: document.getElementById("register_password").value.trim(),
+           			rolid: rol,
+           			avatar: ""
+           		};
+
+		$.ajax({
+				           type: "POST",
+				           url: base_url+"users/add",
+				           dataType: "json",
+				           success: function (msg){
+				           	console.log(msg);
+
+				           	$('#registerModal').modal('hide');
+							sweetAlert('Excelente','La cuenta ha sido REGISTRADA corectamente','success').then((o)=>{
+								window.location=base_url+'welcome';
+								return 1;
+							});
+
+				           },
+				           data:acc
+				       });
 	}
 }
 
@@ -142,7 +212,7 @@ function confirm_delete_account(evt){
 
 		if(resp!=undefined && resp.value)
 		{
-
+			console.log(evt.getAttribute('data-id'));
 	           	// BORRAR CUENTA
 	           	 $.ajax({
 				           type: "POST",
@@ -151,7 +221,7 @@ function confirm_delete_account(evt){
 				           success: function (msg){
 				           	console.log(msg);
 				           },
-				           data:{id:null}
+				           data:{id:evt.getAttribute('data-id')}
 				       });
 	           	 //CIERRE DE BORRAR CUENTA
 			console.log('confirmado para eliminar');
@@ -214,8 +284,7 @@ function update_account(e){
 
            data: account
        });
-  	return 1;
-
+/* 
 var cuentas = [];
   $.ajax({
            type: "GET",
@@ -268,6 +337,7 @@ var cuentas = [];
            	});
           }
        });
+*/
 	////////////////////
 
 

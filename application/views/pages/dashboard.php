@@ -150,10 +150,19 @@
                                 data-rol-name="<?php echo $u->nombre; ?>"
                                 data-avatar="<?php echo $u->avatar; ?>"
                                 data-key="<?php echo $u->id; ?>"
+                                style="z-index: 1000;"
                               >
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button data-id="<?php echo $u->id; ?>" data-key="<?php echo $u->id; ?>" onclick="confirm_delete_account(this)" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-link btn-sm">
+                              <button data-id="<?php echo $u->id; ?>" 
+                                      data-key="<?php echo $u->id; ?>" 
+                                      onclick="confirm_delete_account(this)" 
+                                      type="button"
+                                      rel="tooltip"
+                                      style="z-index: 1000;"
+                                      title="Eliminar"
+                                      class="btn btn-danger btn-link btn-sm">
+                                      
                                 <i class="material-icons">close</i>
                               </button>
                             </td>

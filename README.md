@@ -21,6 +21,11 @@ Autor : Julio Vinachi
 	'database' => '',
 
 	dbdriver implementado ->  mysqli
+
+	'''Cuenta de Prueba'''
+	* user: julio899
+	* pass: vinachi89
+
 # Configurar la URL donde se estara Ejecutando
 	en el archivo /application/config/config.php
 	$config['base_url'] = 'http://localhost/quanticvision/';

@@ -2,11 +2,17 @@
 
 addEventToEdit();
 var keyClickBtnUpdate=null;
+
+
 if( document.getElementById('btn_update_account') != null ) 
 {
 	document.getElementById('btn_update_account').addEventListener('click',update_account);
 }
 
+if( document.getElementById('contenedor_adduser') != null ) 
+{
+	document.getElementById('contenedor_adduser').addEventListener('click',create_new_account);
+}
 // Activacion Funcionalidad de la Tabla de Usuarios
 if( document.getElementById('users_table') != null ) 
 {
@@ -48,6 +54,11 @@ if( document.getElementById('users_table') != null )
     	console.log( 'Table redrawn' );
     	addEventToEdit();
 	} );
+}
+
+function create_new_account(){
+	console.log('create_new_account');
+	$('#registerModal').modal();
 }
 
 function addEventToEdit(){

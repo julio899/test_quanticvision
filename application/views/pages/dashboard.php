@@ -3,7 +3,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
+                  <div class="card-icon contenedor_adduser" id="contenedor_adduser">
                     <i class="material-icons btn_add_user" style="cursor: pointer;">person_add</i>
                   </div>
                   <p class="card-category">Nuevo Usuario</p>

@@ -19,6 +19,7 @@
   <link href="<?php echo base_url();?>assets/demo/demo.css" rel="stylesheet" />
   <!-- datatable   -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
   <script type="text/javascript">var base_url="<?php echo base_url();?>";</script>
 </head>
 
@@ -39,6 +40,7 @@
   </div>
       <?php //$this->load->view('html/plugin'); ?>
       <?php $this->load->view('component/modal_update_user'); ?>
+      <?php $this->load->view('component/modal_register_user'); ?>
       <?php $this->load->view('html/resources_js'); ?>
 
 </body>

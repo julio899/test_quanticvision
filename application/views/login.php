@@ -106,7 +106,7 @@
                   </div>
                 <?php endif; ?>
 
-                  <form>
+                  <form method="" action="" autocomplete="off">
                   <div class="row">
                     <div class="col" style="padding-bottom: 1em;">
                       <input type="text" name="appUserField" autocomplete="off" class="form-control" placeholder="User">
